@@ -1,0 +1,131 @@
+*{
+margin: 0;
+font-family: sans-serif;
+box-sizing: border-box;
+}
+
+.wrapper-menu{
+  transition: all ease 1s;
+}
+
+.burger{
+  &__btn{
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 96px;
+  height: 96px;
+  font-size: 0;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  &:focus{
+    outline: none;
+  }
+}
+  &__line{
+    display: block;
+    position: absolute;
+    top: 44px;
+    left: 18px;
+    right: 18px;
+    height: 8px;
+    background: #fff;
+    &:before, &::after{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: #fff;
+    }
+    &:before{
+      top: -20px;
+    }
+    &::after{
+      bottom: -20px;
+    }
+  }
+  &__btn{
+    background: rgb(122, 91, 91);
+  }
+}
+
+//трансформация верхней линии
+.burger__line {
+  &:before{
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+    transition-property: top, transform;
+  }
+}
+
+//трансформация нижней линии
+.burger__line {
+  &:after{
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+    transition-property: bottom, transform;
+  }
+}
+
+// .burger__btn
+.is-active{
+  & span{
+    background: none;
+    &::before{
+      top: 0;
+      transform: rotate(-45deg);
+      transition-delay: 0s, 0.3s;
+    }
+    &::after{
+      bottom: 0;
+      transform: rotate(45deg);
+      transition-delay: 0s, 0.3s;
+    }
+  }
+}
+
+
+//смещение элементов боди
+.wrapper-active{
+  margin-left: 300px;
+}
+
+
+//стилизация меню
+.burger{
+  width: 300px;
+  margin-left: -204px;
+  background: rgb(197, 146, 146);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  transition: all ease 1s;
+  z-index: 99;
+  &.nav-active{
+    margin-left: 0;
+  }
+}
+
+.content{
+  width: 80%;
+  min-width: 100px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
